@@ -10,6 +10,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        navy: "#001F54",
+        teal: "#4682B4",
+        jiniso: "#5D00A0",
+        blu: "#006FCF",
+        semi: "#F6F4FF",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

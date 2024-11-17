@@ -17,7 +17,7 @@ import {
 
 const Navbar = () => {
   return (
-    <nav className="w-full h-fit font-poppins">
+    <nav className="w-full h-fit font-poppins mb-10">
       <div className="bg-[#001F54] w-full h-24 flex items-center justify-center">
         <h5 className="text-white font-bold text-xs">
           GET YOUR STYLE WITH JINISO! DISKON UP TO 70% + DISKON 20RB!
@@ -52,13 +52,13 @@ const Navbar = () => {
             <button className="min-w-fit">Sale</button>
             <button className="min-w-fit">Jiniso Joyful</button>
           </div>
-          <div className="h-16 border max-w-[50%] w-full border-slate-400 bg-slate-300 pl-4 flex justify-between items-center p-2">
+          <div className="h-12 border max-w-[50%] w-full border-slate-400 bg-slate-300 pl-4 flex justify-between items-center p-4">
             <input
               type="text"
               className="font-medium text-sm placeholder:text-slate-500 text-black w-full bg-transparent outline-none"
               placeholder="Search..."
             />
-            <Search className="size-8" />
+            <Search className="size-6" />
           </div>
         </div>
       </div>
