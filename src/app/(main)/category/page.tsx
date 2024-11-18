@@ -2,7 +2,7 @@
 
 import Daddy from "@/components/layout/daddy";
 import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 import SubbrandProducts from "../pick-up/components/section";
 import { jinisoGirl, jinisoMen } from "../pick-up/constant";
 
@@ -12,12 +12,14 @@ const CategoryPage = () => {
 
   return (
     <Daddy>
-      {category === "women" && (
-        <SubbrandProducts title="JINISO WOMEN" products={jinisoGirl} />
-      )}
-      {category === "men" && (
-        <SubbrandProducts title="JINISO MEN" products={jinisoMen} />
-      )}
+      <Suspense fallback={<div>Loading...</div>}>
+        {category === "women" && (
+          <SubbrandProducts title="JINISO WOMEN" products={jinisoGirl} />
+        )}
+        {category === "men" && (
+          <SubbrandProducts title="JINISO MEN" products={jinisoMen} />
+        )}
+      </Suspense>
     </Daddy>
   );
 };
