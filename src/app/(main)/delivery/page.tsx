@@ -1,8 +1,8 @@
 import Daddy from "@/components/layout/daddy";
 import React from "react";
 import Cards from "./components/cards";
-import SubbrandProducts from "./components/section";
-import { jinisoMen, jinisoGirl } from "./constant";
+import { jinisoMen, jinisoGirl } from "../pick-up/constant";
+import SubbrandProducts from "../pick-up/components/section";
 
 const PickupPage = () => {
   return (

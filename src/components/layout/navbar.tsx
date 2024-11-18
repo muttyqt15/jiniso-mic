@@ -35,17 +35,23 @@ const Navbar = () => {
         <div className="flex justify-between gap-6">
           <div className="flex gap-8 text-sm text-[#1E1E1E] font-medium">
             <DropdownMenu>
-              <DropdownMenuTrigger className="relative flex gap-2 items-center min-w-fit">
+              <DropdownMenuTrigger className="relative flex gap-2 items-center min-w-fit focus:outline-none">
                 <p>Shop By Categories</p>
                 <ChevronDown className="size-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel>Categories</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
-                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="/category?c=women" className="w-full h-full">
+                    <p>Jiniso Women</p>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="/category?c=men" className="w-full h-full">
+                    <p>Jiniso Men</p>
+                  </a>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             <button className="min-w-fit">Best Seller</button>

@@ -1,101 +1,175 @@
+"use client";
+import Daddy from "@/components/layout/daddy";
 import Image from "next/image";
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Store, Truck } from "lucide-react";
+import { useState } from "react";
+import ProductCard from "./pick-up/components/product-card";
+import { jinisoDenimData, jinisoGirl, jinisoMen } from "./pick-up/constant";
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<"must-have" | "deals4u" | "new4u">(
+    "must-have"
+  );
+  const handleTabClick = (tab: "must-have" | "deals4u" | "new4u") => {
+    setActiveTab(tab);
+  };
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <Daddy>
+      <Carousel
+        opts={{
+          align: "start",
+        }}
+        className="w-full">
+        <CarouselContent>
+          {[
+            { img: "/CAROUSEL/CAROUSEL 1.webp" },
+            { img: "/CAROUSEL/CAROUSEL 2.webp" },
+            { img: "/CAROUSEL/CAROUSEL 3.webp" },
+            { img: "/CAROUSEL/CAROUSEL 4.webp" },
+          ].map((p, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1 w-full h-[800px]">
+                <Image
+                  src={p.img}
+                  alt="Carousel image"
+                  fill
+                  objectFit="cover"
+                />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+      <Cards />
+      <div className="grid grid-cols-3 border-b text-gray-600 mt-24">
+        <button
+          onClick={() => handleTabClick("must-have")}
+          className={`pb-4 font-bold ${
+            activeTab === "must-have"
+              ? "text-navy border-b-2 border-navy animate-ease"
+              : "hover:text-gray-800"
+          }`}>
+          MUST HAVE FOR YOU
+        </button>
+        <button
+          onClick={() => handleTabClick("deals4u")}
+          className={`pb-4 font-bold ${
+            activeTab === "deals4u"
+              ? "text-navy border-b-2 border-navy animate-ease"
+              : "hover:text-gray-800"
+          }`}>
+          DEALS FOR YOU
+        </button>
+        <button
+          onClick={() => handleTabClick("new4u")}
+          className={`pb-4 font-bold ${
+            activeTab === "new4u"
+              ? "text-navy border-b-2 border-navy animate-ease"
+              : "hover:text-gray-800"
+          }`}>
+          NEW FOR YOU
+        </button>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Tab Content */}
+      <div className="mt-4">
+        {activeTab === "must-have" && (
+          <div className="w-full grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-4">
+            {jinisoDenimData.map((product, idx) => (
+              <ProductCard product={product} key={idx} />
+            ))}
+          </div>
+        )}
+        {activeTab === "deals4u" && (
+          <div className="w-full grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-4">
+            {jinisoMen.map((product, idx) => (
+              <ProductCard product={product} key={idx} />
+            ))}
+          </div>
+        )}
+        {activeTab === "new4u" && (
+          <div className="w-full grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-4">
+            {jinisoGirl.map((product, idx) => (
+              <ProductCard product={product} key={idx} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="p-1 w-full h-[800px] relative my-8">
+        <Image
+          src="/HOMEPAGE/SIGN UP.PNG"
+          alt="sign up"
+          fill
+          objectFit="cover"
+        />
+      </div>
+
+      <div className="w-full grid place-items-center">
+        <h6 className="text-center font-medium">OUR JEANS COLLECTION</h6>
+        <div className="w-full grid grid-cols-3 lg:w-3/5 place-items-center gap-4">
+          {[
+            {
+              img: "/HOMEPAGE/JEANS COLLECTION/HANDS UP.png",
+              text: "HANDS UP",
+            },
+            { img: "/HOMEPAGE/JEANS COLLECTION/GET LOW.png", text: "GET LOW" },
+            {
+              img: "/HOMEPAGE/JEANS COLLECTION/HANGOVER.png",
+              text: "HANGOVER",
+            },
+            { img: "/HOMEPAGE/JEANS COLLECTION/SEVENTY.png", text: "SEVENTY" },
+            {
+              img: "/HOMEPAGE/JEANS COLLECTION/FEEL GOOD.png",
+              text: "FEEL GOOD",
+            },
+          ].map((p, idx) => (
+            <div key={idx} className="w-full">
+              <div className="w-full relative h-72">
+                <div className="bg-purple-100/50 w-full h-72" />
+                <Image
+                  src={p.img}
+                  alt="sign up"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="mt-2 text-center text-sm font-medium">{p.text}</p>
+            </div>
+          ))}
+          <p className="text-justify text-sm font-medium p-4">
+            ORDER YOUR FAVORITE ITEMS ON THE WEBSITE AND TRY THEM IN-STORE
+            BEFORE PURCHASING. ENJOY FREE STYLING CONSULTATIONS + CUTE LITTLE
+            GIFTS AFTER SHOPPING IN-STORE!
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+      </div>
+    </Daddy>
+  );
+}
+
+function Cards() {
+  return (
+    <div className="flex w-full justify-center gap-6 z-50 -mt-20">
+      <div className="bg-semi py-7 px-10 gap-4 animate-ease flex justify-center items-center border rounded-md shadow-lg w-3/5 h-32">
+        <a href="/pick-up" className="flex items-center gap-6 group">
+          <Store className="text-navy size-24 z-1 my-8 group-hover:text-jiniso animate-ease" />
+          <h5 className="text-4xl font-bold tracking-wide">PICK UP</h5>
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
+        <hr className="bg-slate-500 w-[2px] h-full" />
+        <a href="/delivery" className="flex items-center gap-6 group">
+          <Truck className="text-navy size-24 z-1 my-8 group-hover:text-jiniso animate-ease" />
+          <h5 className="text-4xl font-bold tracking-wide">DELIVERY</h5>
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }

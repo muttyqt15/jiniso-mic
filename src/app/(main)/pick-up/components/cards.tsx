@@ -11,7 +11,7 @@ const Cards = () => {
           <span className="font-bold">in-store</span>. No waiting, no hassle.
         </p>
       </div>
-      <div className=" border-black cursor-pointer relative flex items-center gap-10 group border-2 rounded-md shadow-lg bg-purple-100/50 w-full h-32 p-6">
+      <div className="cursor-pointer relative flex items-center gap-10 group rounded-md shadow-lg bg-purple-100/50 w-full h-32 p-6">
         <div className="absolute group-hover:translate-x-2 top-1/2 -translate-y-1/2 right-6 animate-ease">
           <ChevronRight className="size-4" />
         </div>

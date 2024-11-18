@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Heart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProductCard = ({ product }: { product: any }) => {
   return (
-    <div className="w-full flex flex-col gap-2">
+    <Link href="/jeans/1" className="w-full flex flex-col gap-2">
       <div className="h-72 w-full border relative">
         <Image
           src={
@@ -51,7 +52,7 @@ const ProductCard = ({ product }: { product: any }) => {
           <span className="text-xs text-gray-500">({product.reviews})</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

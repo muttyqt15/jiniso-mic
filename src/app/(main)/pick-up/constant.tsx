@@ -1,4 +1,4 @@
-export const jinisoYouthData = [
+export const jinisoGirl = [
   {
     id: 1,
     name: "JINISO - Highwaist Baggy Jeans GET LOW",
@@ -57,7 +57,7 @@ export const jinisoYouthData = [
   },
 ];
 
-export const jinisoStreetData = [
+export const jinisoMen = [
   {
     id: 1,
     name: "JINISO - Oversize Baggy Loose Jeans PHO",
@@ -71,9 +71,9 @@ export const jinisoStreetData = [
   },
   {
     id: 2,
-    name: "JINISO - Jumpsuit Overall Celana Jeans Panjang",
-    image: "/api/placeholder/300/400",
-    currentPrice: "Rp 199.500,00",
+    name: "JINISO - Loose Denim Jeans Pria",
+    image: "/PRODUCTS/JINISO Loose Denim Jeans Pria 851 1.jpg",
+    currentPrice: "Rp 189.500,00",
     originalPrice: "Rp 598.571,0",
     discount: "66%",
     rating: 4.5,
@@ -82,8 +82,8 @@ export const jinisoStreetData = [
   },
   {
     id: 3,
-    name: "JINISO - Garis Highwaist Loose Jeans LEVEL UP",
-    image: "/api/placeholder/300/400",
+    name: "JINISO - Pria Jaket Jeans Oversize Vintage",
+    image: "/PRODUCTS/jaket jeans 1.png",
     currentPrice: "Rp 209.500,00",
     originalPrice: "Rp 627.143,00",
     discount: "65%",
@@ -93,8 +93,8 @@ export const jinisoStreetData = [
   },
   {
     id: 4,
-    name: "JINISO - Highwaist Baggy Ripped Jeans MYSTIC GAL",
-    image: "/api/placeholder/300/400",
+    name: "JINISO - Loose Cargo Denim Jeans Pria",
+    image: "/PRODUCTS/JINISO Loose Cargo Denim Jeans Pria 401 2.webp",
     currentPrice: "Rp 209.500,00",
     originalPrice: "Rp 627.143,00",
     discount: "66%",
@@ -104,8 +104,8 @@ export const jinisoStreetData = [
   },
   {
     id: 5,
-    name: "JINISO - Highwaist Jeans BODY GOAL",
-    image: "/api/placeholder/300/400",
+    name: "JINISO - Pria Jaket Jeans Oversize Basic Packet",
+    image: "/PRODUCTS/jaket jeans 2.png",
     currentPrice: "Rp 199.500,00",
     originalPrice: "Rp 598.571,0",
     discount: "66%",
